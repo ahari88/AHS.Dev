@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AHS Dev</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #38bdf8;
+      --bg: #f8fafc;
+      --text: #1f2937;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Fira Sans', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('desk.jpg') center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    .hero a.cta-btn {
+      background: var(--accent);
+      color: black;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .hero a.cta-btn:hover {
+      background: #0ea5e9;
+      color: white;
+    }
+    .tab-nav {
+      display: flex;
+      justify-content: center;
+      background: var(--secondary);
+      padding: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 2px solid var(--accent);
+      padding: 0.5rem 1.5rem;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: var(--accent);
+      color: #000;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      overflow: hidden;
+    }
+    .tab-content {
+      display: flex;
+      width: 400%;
+      transition: transform 0.4s ease-in-out;
+    }
+    section {
+      width: 100%;
+      flex-shrink: 0;
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .about-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .about-wrapper img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .project-card {
+      background: white;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+      border-left: 5px solid var(--accent);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .project-card:hover {
+      transform: scale(1.02);
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    ul li::marker {
+      color: var(--accent);
+    }
+    footer {
+      background: var(--secondary);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+      }
+      .tab-content {
+        flex-direction: column;
+        width: 100%;
+      }
+      section {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content" data-aos="zoom-in">
+      <h1>WELCOME TO AHS DEV</h1>
+      <p>Turning your ideas into stunning, functional websites — crafted with care by AHS Dev</p>
+      <a href="#about" class="cta-btn">GET STARTED</a>
+    </div>
+  </header>
+
+  <nav class="tab-nav" data-aos="fade-up">
+    <button class="tab-btn active" data-index="0">About</button>
+    <button class="tab-btn" data-index="1">Projects</button>
+    <button class="tab-btn" data-index="2">Services</button>
+    <button class="tab-btn" data-index="3">Contact</button>
+  </nav>
+
+  <div class="container">
+    <div class="tab-content">
+      <section id="about" data-aos="fade-right">
+        <h2>About Me</h2>
+        <div class="about-wrapper">
+          <img src="image/profilm.jpg" alt="Foto AHS Dev">
+          <div>
+            <p>I’m a civil servant at BRIN with a deep passion for web development, data science, and digital transformation.</p>
+            <ul>
+              <li>Languages: Python, HTML, CSS, JavaScript, SQL</li>
+              <li>Frameworks: Flask, scikit-learn, NLTK</li>
+              <li>Tools: VSCode, SQLite, OpenCV</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" data-aos="fade-left">
+        <h2>Projects</h2>
+        <div class="project-card" data-aos="zoom-in">
+          <h3>CRUD Shopping App</h3>
+          <p>Inventory app with XAMPP + MySQL for managing items with create, update, delete functions.</p>
+        </div>
+        <div class="project-card" data-aos="zoom-in">
+          <h3>Emotion Detection from Text</h3>
+          <p>Text classification using NLTK and scikit-learn to detect user emotion.</p>
+        </div>
+        <div class="project-card" data-aos="zoom-in">
+          <h3>Auto Image Processing</h3>
+          <p>Layered image processing with OpenCV for improved contrast and presentation.</p>
+        </div>
+        <div class="project-card" data-aos="zoom-in">
+          <h3>South Tangerang City Website</h3>
+          <p>Responsive page showing local data: geography, history, transport info.</p>
+        </div>
+        <div class="project-card" data-aos="zoom-in">
+          <h3>Ez Thrift Online Store</h3>
+          <p>Digital thrifting platform with additional laundry services and visual catalog.</p>
+        </div>
+      </section>
+
+      <section id="services" data-aos="fade-up">
+        <h2>Services</h2>
+        <ul>
+          <li>📱 Website Development (personal, UMKM, orgs)</li>
+          <li>🛠️ CRUD App & Admin Panel</li>
+          <li>🖼️ Auto Image Editing & Layering</li>
+          <li>📘 Coding Class (HTML, Python, ML)</li>
+        </ul>
+      </section>
+
+      <section id="contact" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <p><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:andi.hari.ah@gmail.com">andi.hari.ah@gmail.com</a></p>
+        <p><i class="fa-brands fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/6281519809936">+62 815-1980-9936</a></p>
+        <p><i class="fa-brands fa-instagram"></i> Instagram: <a href="https://www.instagram.com/aterali">@aterali</a></p>
+      </section>
+    </div>
+  </div>
+
+  <footer data-aos="fade-in">
+    <p>&copy; 2024 AHS Dev. Built with style & simplicity.</p>
+    <p>Photo by AHS Dev</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContent = document.querySelector('.tab-content');
+    const sections = document.querySelectorAll('.tab-content section');
+
+    function activateTab(index) {
+      tabBtns.forEach(btn => btn.classList.remove('active'));
+      tabBtns[index].classList.add('active');
+      tabContent.style.transform = `translateX(-${index * 100}%)`;
+      sections.forEach((section, i) => {
+        section.classList.remove('active');
+        if (i === index) {
+          setTimeout(() => section.classList.add('active'), 100);
+        }
+      });
+    }
+    tabBtns.forEach((btn, index) => btn.addEventListener('click', () => activateTab(index)));
+    window.addEventListener('DOMContentLoaded', () => activateTab(0));
+  </script>
+</body>
+</html>
